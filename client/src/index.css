@@ -1,6 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@keyframes fade-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-slide-up {
+  animation: fade-slide-up 0.6s ease-out forwards;
+}
 
 :root {
   --background: hsl(0, 0%, 100%);
@@ -113,6 +127,9 @@
   /* Glow effects */
   .glow-border {
     box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+    border: 2px solid transparent;
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
   }
 
   /* Gradient text */

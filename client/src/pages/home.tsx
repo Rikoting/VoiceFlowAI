@@ -17,6 +17,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import LegacyRecorder from "../components/LegacyRecorder";
+
+
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -43,12 +46,12 @@ export default function Home() {
       <nav className="relative z-50 glass-effect">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16 items-center">
-            <div className="flex items-center space-x-2">
+            <a href="/" className="flex items-center space-x-2 hover:opacity-80 transition-opacity">
               <div className="w-8 h-8 rounded-lg bg-gradient-to-r from-electric-500 to-neon-500 flex items-center justify-center">
                 <Mic className="w-5 h-5 text-white" />
               </div>
               <span className="text-xl font-bold text-gradient">VoiceFlow AI</span>
-            </div>
+            </a>
             <div className="flex items-center space-x-4">
               <a href="#demo" className="text-gray-300 hover:text-white transition-colors">Demo</a>
               <a href="#tech" className="text-gray-300 hover:text-white transition-colors">Tech Stack</a>
@@ -94,15 +97,22 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-              <Button className="bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 px-8 py-4 text-lg font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 glow-border">
-                <Eye className="w-5 h-5 mr-2" />
-                See Airtable Demo
+              <Button asChild className="bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 px-8 py-4 text-lg font-semibold rounded-xl transform hover:scale-105 transition-all duration-300 glow-border">
+                <a href="https://airtable.com/embed/appXpNiN4xZXPi7kr/shr4M3RUqg7cJ4Asc?viewControls=on" target="_blank" rel="noopener noreferrer">
+                  <Eye className="w-5 h-5 mr-2" />
+                  See Airtable Demo
+                </a>
               </Button>
-              <Button variant="outline" className="glass-effect border-white/20 hover:border-white/40 px-8 py-4 text-lg font-semibold rounded-xl">
-                <Github className="w-5 h-5 mr-2" />
-                View on GitHub
+
+              <Button asChild variant="outline" className="glass-effect border-white/20 hover:border-white/40 px-8 py-4 text-lg font-semibold rounded-xl">
+                <a href="https://github.com/Rikoting/call-transcription-airtable-crm" target="_blank" rel="noopener noreferrer">
+                  <Github className="w-5 h-5 mr-2" />
+                  View on GitHub
+                </a>
               </Button>
             </div>
+            <LegacyRecorder />
+
 
             {/* Stats */}
             <motion.div 
@@ -169,7 +179,7 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-electric-500 to-electric-400 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                       <Mic className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">Voice Input</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-gradient">Voice Input</h3>
                     <p className="text-gray-400 text-sm">Upload via Telegram or direct file upload. Supports multiple audio formats.</p>
                   </CardContent>
                 </Card>
@@ -183,7 +193,7 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-neon-500 to-neon-400 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                       <FileText className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">AI Transcription</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-gradient">AI Transcription</h3>
                     <p className="text-gray-400 text-sm">Whisper AI converts speech to text with 95% accuracy and punctuation.</p>
                   </CardContent>
                 </Card>
@@ -197,7 +207,7 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-400 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                       <Lightbulb className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">GPT Parsing</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-gradient">GPT Parsing</h3>
                     <p className="text-gray-400 text-sm">Extract names, emails, urgency levels, and project details automatically.</p>
                   </CardContent>
                 </Card>
@@ -211,7 +221,7 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-electric-500 to-neon-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                       <Zap className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">Enrichment</h3>
+                      <h3 className="text-xl font-semibold mb-3 text-gradient">Enrichment</h3>
                     <p className="text-gray-400 text-sm">Validate fields, apply urgency tagging, and format data for CRM integration.</p>
                   </CardContent>
                 </Card>
@@ -225,7 +235,7 @@ export default function Home() {
                     <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-electric-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                       <Database className="w-8 h-8 text-white" />
                     </div>
-                    <h3 className="text-xl font-semibold mb-3">Airtable CRM</h3>
+                      <h3 className="text-xl font-semibold mb-3 text-gradient">Airtable CRM</h3>
                     <p className="text-gray-400 text-sm">Structured data pushed directly to your CRM with real-time updates.</p>
                   </CardContent>
                 </Card>
@@ -243,71 +253,44 @@ export default function Home() {
               <span className="text-gradient">Live Output</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-              See real CRM data generated from voice recordings in our Airtable integration
+              View real-time CRM records generated from voice recordings.
             </p>
           </motion.div>
 
           <motion.div {...fadeInUp}>
-            <Card className="glass-card border-white/10 rounded-3xl p-8 mb-8">
-              <CardContent className="p-0">
-                <div className="bg-white rounded-2xl overflow-hidden">
-                  <div className="bg-gray-50 p-4 border-b flex items-center justify-between">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-6 h-6 bg-orange-500 rounded flex items-center justify-center">
-                        <span className="text-white text-xs font-bold">A</span>
-                      </div>
-                      <span className="font-semibold text-gray-800">Customer Voice Recordings</span>
-                    </div>
-                    <div className="text-sm text-gray-500">Last updated: 2 min ago</div>
-                  </div>
-                  
-                  <div className="bg-white">
-                    <div className="grid grid-cols-5 gap-4 p-4 border-b text-sm font-medium text-gray-700">
-                      <div>Customer Name</div>
-                      <div>Email</div>
-                      <div>Urgency</div>
-                      <div>Project Type</div>
-                      <div>Timeline</div>
-                    </div>
-                    
-                    <div className="divide-y">
-                      <div className="grid grid-cols-5 gap-4 p-4 text-sm">
-                        <div className="text-gray-900 font-medium">Sarah Johnson</div>
-                        <div className="text-blue-600">sarah.j@company.com</div>
-                        <div><span className="bg-red-100 text-red-800 px-2 py-1 rounded-full text-xs">High</span></div>
-                        <div className="text-gray-700">E-commerce Website</div>
-                        <div className="text-gray-700">2 weeks</div>
-                      </div>
-                      <div className="grid grid-cols-5 gap-4 p-4 text-sm">
-                        <div className="text-gray-900 font-medium">Mike Chen</div>
-                        <div className="text-blue-600">m.chen@startup.io</div>
-                        <div><span className="bg-yellow-100 text-yellow-800 px-2 py-1 rounded-full text-xs">Medium</span></div>
-                        <div className="text-gray-700">Mobile App</div>
-                        <div className="text-gray-700">6 weeks</div>
-                      </div>
-                      <div className="grid grid-cols-5 gap-4 p-4 text-sm">
-                        <div className="text-gray-900 font-medium">Emily Rodriguez</div>
-                        <div className="text-blue-600">emily.r@agency.com</div>
-                        <div><span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">Low</span></div>
-                        <div className="text-gray-700">Brand Identity</div>
-                        <div className="text-gray-700">4 weeks</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div className="text-center mt-8">
-                  <Button className="bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 px-8 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300">
-                    <ExternalLink className="w-5 h-5 mr-2" />
-                    View Full Airtable
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
+            <div className="relative">
+              {/* Glow Backlight */}
+              <div className="absolute inset-0 rounded-3xl blur-3xl bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-electric-500/30 via-electric-500/20 to-transparent opacity-40 z-0" />
+              
+              {/* Airtable Panel */}
+              <div className="relative z-10 p-1 rounded-3xl bg-white shadow-[0_0_60px_10px_rgba(255,255,255,0.15)] overflow-hidden">
+                <iframe
+                  className="w-full h-[600px] rounded-2xl"
+                  src="https://airtable.com/embed/appXpNiN4xZXPi7kr/shrcwgyVCHwNRj8Vi?viewControls=on"
+                  frameBorder="0"
+                  style={{ background: "white" }}
+                />
+              </div>
+            </div>
+
+            <div className="text-center mt-8">
+              <Button
+                className="bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 px-8 py-3 rounded-xl font-semibold transform hover:scale-105 transition-all duration-300"
+                asChild
+              >
+                <a
+                  href="https://airtable.com/appXpNiN4xZXPi7kr/tbl4XwI9KZ4aS9D2i/viwEjwEouL4RfT8wX"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="w-5 h-5 mr-2" />
+                  Open in Airtable
+                </a>
+              </Button>
+            </div>
           </motion.div>
         </div>
       </section>
-
       {/* Tech Stack */}
       <section id="tech" className="relative py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
@@ -333,7 +316,7 @@ export default function Home() {
                   <div className="w-20 h-20 bg-gradient-to-r from-green-500 to-emerald-400 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                     <Mic className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Whisper AI</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-gradient">Whisper AI</h3>
                   <p className="text-gray-400 text-sm">OpenAI's state-of-the-art speech recognition model</p>
                 </CardContent>
               </Card>
@@ -346,7 +329,7 @@ export default function Home() {
                   <div className="w-20 h-20 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                     <Lightbulb className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">GPT-4</h3>
+                    <h3 className="text-xl font-semibold mb-3 text-gradient">GPT-4</h3>
                   <p className="text-gray-400 text-sm">Advanced language model for data extraction and analysis</p>
                 </CardContent>
               </Card>
@@ -359,7 +342,7 @@ export default function Home() {
                   <div className="w-20 h-20 bg-gradient-to-r from-red-500 to-pink-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                     <Zap className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">n8n</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-gradient">n8n</h3>
                   <p className="text-gray-400 text-sm">Workflow automation platform connecting all services</p>
                 </CardContent>
               </Card>
@@ -372,7 +355,7 @@ export default function Home() {
                   <div className="w-20 h-20 bg-gradient-to-r from-orange-500 to-amber-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                     <Database className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Airtable</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-gradient">Airtable</h3>
                   <p className="text-gray-400 text-sm">Flexible database and CRM for structured data storage</p>
                 </CardContent>
               </Card>
@@ -385,7 +368,7 @@ export default function Home() {
                   <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 mx-auto group-hover:scale-110 transition-transform">
                     <MessageSquare className="w-10 h-10 text-white" />
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">Telegram</h3>
+                  <h3 className="text-xl font-semibold mb-3 text-gradient">Telegram</h3>
                   <p className="text-gray-400 text-sm">Bot integration for seamless file uploads and notifications</p>
                 </CardContent>
               </Card>
@@ -421,7 +404,7 @@ export default function Home() {
                       <Heart className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">AI Fallback Logic</h3>
+                        <h3 className="text-xl font-semibold mb-3 text-gradient">AI Fallback Logic</h3>
                       <p className="text-gray-400">Intelligent error handling with multiple AI model fallbacks ensures 99.9% processing reliability even when primary services are unavailable.</p>
                     </div>
                   </div>
@@ -438,7 +421,7 @@ export default function Home() {
                       <AlertTriangle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Smart Urgency Tagging</h3>
+                        <h3 className="text-xl font-semibold mb-3 text-gradient">Smart Urgency Tagging</h3>
                       <p className="text-gray-400">Advanced NLP analysis identifies urgent requests from voice tone, keywords, and context to prioritize critical customer needs automatically.</p>
                     </div>
                   </div>
@@ -455,7 +438,7 @@ export default function Home() {
                       <CheckCircle className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Enum-Safe Field Validation</h3>
+                        <h3 className="text-xl font-semibold mb-3 text-gradient">Enum-Safe Field Validation</h3>
                       <p className="text-gray-400">Structured data validation ensures all extracted information conforms to predefined schemas, preventing data corruption in your CRM.</p>
                     </div>
                   </div>
@@ -472,7 +455,7 @@ export default function Home() {
                       <Zap className="w-6 h-6 text-white" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold mb-3">Real-Time Processing</h3>
+                        <h3 className="text-xl font-semibold mb-3 text-gradient">Real-Time Processing</h3>
                       <p className="text-gray-400">Lightning-fast pipeline processes voice recordings in under 30 seconds from upload to CRM entry, enabling immediate action on customer requests.</p>
                     </div>
                   </div>
@@ -509,7 +492,7 @@ export default function Home() {
             {/* Contact Info */}
             <Card className="glass-card border-white/10 max-w-md mx-auto">
               <CardContent className="p-8">
-                <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
+                  <h3 className="text-xl font-semibold mb-4 text-gradient">Contact Information</h3>
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-center justify-center space-x-3">
                     <Mail className="w-5 h-5 text-electric-500" />
